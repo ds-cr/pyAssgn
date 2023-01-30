@@ -1,0 +1,11 @@
+Logic - Only the O's which are connected to the boundary somehow will not change to X. Along with them any of their neighbouring O's also wouldn't convert. So go from the boundaries and mark all the unfit O.
+
+Implementation - Using Depth First Approach
+Here we first take input from user regarding no. of rows and columns.
+Then two for loops are taken to take input row wise.
+Then we call the dfs function on the fours boundaries of the matrix.
+
+Each call to dfs first checks if the indexes of the given aren't out of bound or if the point is not 'O'. If any of the conditions come true then the function returns.
+Otherwise, the current index value is turned to flag value ('A') and dfs is called on its neighbours.
+
+After taking dfs on all four boundaries we simply traverse the matrix again, converting any O to X and any A to O.
