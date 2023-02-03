@@ -1,10 +1,20 @@
 # pyAssgn
 
-Used BFS approach to solve the problem
+### Approach
+Mark all the O(s) that are connected to boundary *(directly or indirectly)*. Then traverse the matrix and convert all the non-marked Os.
+
+### Implementation (BFS)
 Basically all the O on the borderline of the squaure and the O which connect to them would not be transformed.
-So basically I traverse the bordreline find the O, start a bfs on that.
-For all the O's that would not transform I change them into P(chose randomly)
-Then I traverse the full matrix and change all the remaining O to X and the P to O.
+1. Take input from user using `iter` and `input`.
+2. Make an object of `Solution` class. Call its `solve` function.
+3. Inside the solve function to make an empty array named `searchArray`. This will serve the purpose of storing the indexes of unfit Os.
+4. Then traverse all the columns and rows. For each index if the value is 'O' append it to array and call the `callBFS` function on it.
+5. The function marks the cell. It then traverses the `searchArray` and for each index it checks its neighbours, marks them if they are O and appends them to the array.
+6. Finally traverse the matrix again. Convert all the Os to X and all the Ps to O.
+
+**Time Complexity** - O(m\*n)<br>
+**Space Complexity** - O(m\*n)<br>
+<font size = "0.1"> *where m is row size and n is column size of matrix* </font>
 
 Proof
 
