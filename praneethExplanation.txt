@@ -1,8 +1,0 @@
-Logic - Only the O's which are connected to the boundary somehow will not change to X. Along with them any of their neighbouring O's also wouldn't convert. So go from the boundaries and mark all the unfit O.
-
-Implementation - Using Breadth First Approach
-We call the bfs function by passing the matrix. Then at first we traverse all the boundaries marking all the O since they will not be transformed. Along with marking we also store their indexes in a queue. This will help to check their neighbouring O for marking them as well.
-
-After traversing boundaries we pop values from the queue. We check the value's neighbour and if its an O we append it to the queue. We keep going on until the queue is empty.
-
-Finally we convert the marked values to O and the O to X.
