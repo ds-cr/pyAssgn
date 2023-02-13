@@ -24,9 +24,16 @@ class TestpyAssgn(unittest.TestCase):
         print()
         self.assertRaises(Exception, self.pyAssgn_obj.get_input)
 
-    @patch('builtins.input', new = Mock(side_effect=['']))
+    @patch('builtins.input', new = Mock(return_value=''))
     def test_return_empty_list_when_empty_input_is_given(self):
         print()
         self.pyAssgn_obj.get_input()
         self.pyAssgn_obj.convert_surrounded_O_to_X()
         self.assertListEqual([], self.pyAssgn_obj.get_board())
+
+    @patch('builtins.input', new = Mock(side_effect=['X','']))
+    def test_return_single_list_when_single_value_is_given(self):
+        print()
+        self.pyAssgn_obj.get_input()
+        self.pyAssgn_obj.convert_surrounded_O_to_X()
+        self.assertListEqual([['X']], self.pyAssgn_obj.get_board())
